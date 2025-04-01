@@ -28,7 +28,8 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
 
         BarraDeOpciones = new javax.swing.JMenuBar();
         Mantenimiento = new javax.swing.JMenu();
-        MantUsuario = new javax.swing.JMenuItem();
+        OpMantUsuario = new javax.swing.JMenuItem();
+        OpMantEntrenador = new javax.swing.JMenuItem();
         Movimientos = new javax.swing.JMenu();
         MovCuotas = new javax.swing.JMenuItem();
         Procesos = new javax.swing.JMenu();
@@ -51,10 +52,25 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        BarraDeOpciones.setBackground(new java.awt.Color(204, 204, 0));
+
         Mantenimiento.setText("Mantenimiento");
 
-        MantUsuario.setText("Usuario");
-        Mantenimiento.add(MantUsuario);
+        OpMantUsuario.setText("Usuario");
+        OpMantUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpMantUsuarioActionPerformed(evt);
+            }
+        });
+        Mantenimiento.add(OpMantUsuario);
+
+        OpMantEntrenador.setText("Entrenador");
+        OpMantEntrenador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpMantEntrenadorActionPerformed(evt);
+            }
+        });
+        Mantenimiento.add(OpMantEntrenador);
 
         BarraDeOpciones.add(Mantenimiento);
 
@@ -124,15 +140,25 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 639, Short.MAX_VALUE)
+            .addGap(0, 465, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGap(0, 366, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void OpMantUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpMantUsuarioActionPerformed
+        String[] args=null;
+        MantUsuario.main(args);
+    }//GEN-LAST:event_OpMantUsuarioActionPerformed
+
+    private void OpMantEntrenadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpMantEntrenadorActionPerformed
+        String[] args=null;
+        MantEntrenador.main(args);
+    }//GEN-LAST:event_OpMantEntrenadorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -186,10 +212,11 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
     private javax.swing.JMenuItem ConUsuario;
     private javax.swing.JMenu Consulta;
     private javax.swing.JMenuItem GenCobro;
-    private javax.swing.JMenuItem MantUsuario;
     private javax.swing.JMenu Mantenimiento;
     private javax.swing.JMenuItem MovCuotas;
     private javax.swing.JMenu Movimientos;
+    private javax.swing.JMenuItem OpMantEntrenador;
+    private javax.swing.JMenuItem OpMantUsuario;
     private javax.swing.JMenu Procesos;
     private javax.swing.JMenuItem ResCobro;
     // End of variables declaration//GEN-END:variables
