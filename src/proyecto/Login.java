@@ -119,8 +119,7 @@ public class Login extends javax.swing.JFrame {
         String lg="Admin";
         String pass="001";
         
-        System.out.println(lg);
-        System.out.println(pass);
+        System.out.println("Entrada login:"+"["+lg+"/"+pass+"]");
         
         if(lg/*GetLogin.getText()*/=="Admin"&&/*GetPassword.getText()*/pass=="001"){
             System.out.println("[Se abrio menu]");
@@ -162,8 +161,10 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //--------------------------------------------
         Archivador doc=new Archivador();
         doc.CrearArchivo();
+        //--------------------------------------------
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
