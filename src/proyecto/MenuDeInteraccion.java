@@ -26,10 +26,21 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         BarraDeOpciones = new javax.swing.JMenuBar();
         Mantenimiento = new javax.swing.JMenu();
         OpMantUsuario = new javax.swing.JMenuItem();
         OpMantEntrenador = new javax.swing.JMenuItem();
+        OpMantLocalizacion = new javax.swing.JMenuItem();
+        OpMantSalas = new javax.swing.JMenuItem();
+        OpMantHorActividades = new javax.swing.JMenuItem();
+        OpMantActividades = new javax.swing.JMenuItem();
+        OpMantClientes = new javax.swing.JMenuItem();
+        OpMantEstReservas = new javax.swing.JMenuItem();
+        OpMantReservas = new javax.swing.JMenuItem();
+        OpMantReservaAct = new javax.swing.JMenuItem();
         Movimientos = new javax.swing.JMenu();
         MovCuotas = new javax.swing.JMenuItem();
         Procesos = new javax.swing.JMenu();
@@ -52,6 +63,35 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(25, 23, 23));
+        jPanel1.setForeground(new java.awt.Color(51, 51, 0));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GymLogo.jpg"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Gym.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(45, 45, 45)
+                .addComponent(jLabel2)
+                .addContainerGap(83, Short.MAX_VALUE))
+        );
+
         BarraDeOpciones.setBackground(new java.awt.Color(204, 204, 0));
 
         Mantenimiento.setText("Mantenimiento");
@@ -71,6 +111,30 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
             }
         });
         Mantenimiento.add(OpMantEntrenador);
+
+        OpMantLocalizacion.setText("Localizacion");
+        Mantenimiento.add(OpMantLocalizacion);
+
+        OpMantSalas.setText("Salas");
+        Mantenimiento.add(OpMantSalas);
+
+        OpMantHorActividades.setText("Horarios de actividades");
+        Mantenimiento.add(OpMantHorActividades);
+
+        OpMantActividades.setText("Actividades");
+        Mantenimiento.add(OpMantActividades);
+
+        OpMantClientes.setText("Clientes");
+        Mantenimiento.add(OpMantClientes);
+
+        OpMantEstReservas.setText("Estado Reservas");
+        Mantenimiento.add(OpMantEstReservas);
+
+        OpMantReservas.setText("Reservas");
+        Mantenimiento.add(OpMantReservas);
+
+        OpMantReservaAct.setText("Reserva actividades");
+        Mantenimiento.add(OpMantReservaAct);
 
         BarraDeOpciones.add(Mantenimiento);
 
@@ -140,11 +204,11 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 366, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -215,9 +279,20 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
     private javax.swing.JMenu Mantenimiento;
     private javax.swing.JMenuItem MovCuotas;
     private javax.swing.JMenu Movimientos;
+    private javax.swing.JMenuItem OpMantActividades;
+    private javax.swing.JMenuItem OpMantClientes;
     private javax.swing.JMenuItem OpMantEntrenador;
+    private javax.swing.JMenuItem OpMantEstReservas;
+    private javax.swing.JMenuItem OpMantHorActividades;
+    private javax.swing.JMenuItem OpMantLocalizacion;
+    private javax.swing.JMenuItem OpMantReservaAct;
+    private javax.swing.JMenuItem OpMantReservas;
+    private javax.swing.JMenuItem OpMantSalas;
     private javax.swing.JMenuItem OpMantUsuario;
     private javax.swing.JMenu Procesos;
     private javax.swing.JMenuItem ResCobro;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
