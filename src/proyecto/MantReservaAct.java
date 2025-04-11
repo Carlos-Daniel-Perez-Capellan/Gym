@@ -29,9 +29,9 @@ public class MantReservaAct extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        SaveName = new javax.swing.JPasswordField();
-        SaveId1 = new javax.swing.JTextField();
-        SaveEntrenador = new javax.swing.JPasswordField();
+        SaveIdRes = new javax.swing.JPasswordField();
+        SaveHorario = new javax.swing.JTextField();
+        SaveFecha = new javax.swing.JPasswordField();
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -41,9 +41,9 @@ public class MantReservaAct extends javax.swing.JFrame {
         Estado = new javax.swing.JLabel();
         Limpiar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        SaveName1 = new javax.swing.JPasswordField();
+        SaveEstadoRes = new javax.swing.JPasswordField();
         GuardarUsu = new javax.swing.JButton();
-        SaveLocate = new javax.swing.JTextField();
+        SaveIdCliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,9 +57,9 @@ public class MantReservaAct extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(204, 204, 0));
         jLabel8.setText("ID cliente que reservo");
 
-        SaveId1.addActionListener(new java.awt.event.ActionListener() {
+        SaveHorario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveId1CambioDeEstado(evt);
+                SaveHorarioCambioDeEstado(evt);
             }
         });
 
@@ -121,9 +121,9 @@ public class MantReservaAct extends javax.swing.JFrame {
             }
         });
 
-        SaveLocate.addActionListener(new java.awt.event.ActionListener() {
+        SaveIdCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveLocateCambioDeEstado(evt);
+                SaveIdClienteCambioDeEstado(evt);
             }
         });
 
@@ -146,8 +146,8 @@ public class MantReservaAct extends javax.swing.JFrame {
                                         .addComponent(jLabel8))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(SaveLocate)
-                                        .addComponent(SaveEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(SaveIdCliente)
+                                        .addComponent(SaveFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel1)
@@ -155,15 +155,15 @@ public class MantReservaAct extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(SaveId)
-                                        .addComponent(SaveName, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(SaveIdRes, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel3)
                                         .addComponent(jLabel10))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(SaveId1)
-                                        .addComponent(SaveName1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(SaveHorario)
+                                        .addComponent(SaveEstadoRes, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                     .addGap(79, 79, 79)
                                     .addComponent(Estado, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -189,23 +189,23 @@ public class MantReservaAct extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(SaveName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SaveIdRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(SaveLocate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SaveIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(SaveEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SaveFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(SaveId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SaveHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(SaveName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(SaveEstadoRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GuardarUsu)
@@ -228,48 +228,63 @@ public class MantReservaAct extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SaveId1CambioDeEstado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveId1CambioDeEstado
+    private void SaveHorarioCambioDeEstado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveHorarioCambioDeEstado
         // TODO add your handling code here:
-    }//GEN-LAST:event_SaveId1CambioDeEstado
+    }//GEN-LAST:event_SaveHorarioCambioDeEstado
 
     private void SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalidaActionPerformed
         dispose();
     }//GEN-LAST:event_SalidaActionPerformed
 
     private void SaveIdCambioDeEstado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveIdCambioDeEstado
-        String estado;
-        String login=SaveId.getText();
-        Archivador buscar=new Archivador();
+        String login = SaveId.getText();
+        Reservas buscar = new Reservas();
 
-        if(login==buscar.BuscarDato(login)){
+        if (login == buscar.BuscarDato(login)) {
             Estado.setText("Modificar usuario existente.");
-            SaveName.setText(buscar.BuscarDato(""));
-        }else{
+            SaveIdRes.setText(buscar.BuscarDato(""));
+        } else {
             Estado.setText("Crear usuario no existente.");
         }
     }//GEN-LAST:event_SaveIdCambioDeEstado
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
         SaveId.setText("");
-        SaveName.setText("");
+        SaveIdRes.setText("");
+        SaveIdCliente.setText("");
+        SaveFecha.setText("");
+        SaveHorario.setText("");
+        SaveEstadoRes.setText("");
+
         Estado.setText("");
+
     }//GEN-LAST:event_LimpiarActionPerformed
 
     private void GuardarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarUsuActionPerformed
-        Archivador data=new Archivador();
-        Usuarios person=new Usuarios();
+        Reservas person = new Reservas();
 
-        person.Login_Ususario=SaveId.getText();
-        person.Pass_Usuario=SaveName.getText();
+        person.id_reserva = SaveId.getText();
+        person.id_sala_reserva = SaveIdRes.getText();
+        person.id_cliente_reserva = SaveIdCliente.getText();
+        person.fecha_reserva = SaveFecha.getText();
+        person.id_hora_reserva = SaveHorario.getText();
+        person.id_estado_reserva = SaveEstadoRes.getText();
+
+        person.GuardarDato(person.id_reserva, person.id_sala_reserva, person.id_cliente_reserva, person.fecha_reserva, person.id_hora_reserva, person.id_estado_reserva);
 
         SaveId.setText("");
-        SaveName.setText("");
+        SaveIdRes.setText("");
+        SaveIdCliente.setText("");
+        SaveFecha.setText("");
+        SaveHorario.setText("");
+        SaveEstadoRes.setText("");
+
         Estado.setText("");
     }//GEN-LAST:event_GuardarUsuActionPerformed
 
-    private void SaveLocateCambioDeEstado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveLocateCambioDeEstado
+    private void SaveIdClienteCambioDeEstado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveIdClienteCambioDeEstado
         // TODO add your handling code here:
-    }//GEN-LAST:event_SaveLocateCambioDeEstado
+    }//GEN-LAST:event_SaveIdClienteCambioDeEstado
 
     /**
      * @param args the command line arguments
@@ -311,12 +326,12 @@ public class MantReservaAct extends javax.swing.JFrame {
     private javax.swing.JButton GuardarUsu;
     private javax.swing.JButton Limpiar;
     private javax.swing.JButton Salida;
-    private javax.swing.JPasswordField SaveEntrenador;
+    private javax.swing.JPasswordField SaveEstadoRes;
+    private javax.swing.JPasswordField SaveFecha;
+    private javax.swing.JTextField SaveHorario;
     private javax.swing.JTextField SaveId;
-    private javax.swing.JTextField SaveId1;
-    private javax.swing.JTextField SaveLocate;
-    private javax.swing.JPasswordField SaveName;
-    private javax.swing.JPasswordField SaveName1;
+    private javax.swing.JTextField SaveIdCliente;
+    private javax.swing.JPasswordField SaveIdRes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;

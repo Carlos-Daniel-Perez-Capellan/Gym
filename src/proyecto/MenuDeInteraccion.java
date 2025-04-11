@@ -27,7 +27,6 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         BarraDeOpciones = new javax.swing.JMenuBar();
         Mantenimiento = new javax.swing.JMenu();
@@ -66,9 +65,6 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(25, 23, 23));
         jPanel1.setForeground(new java.awt.Color(51, 51, 0));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/GymLogo.jpg"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Gym.jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -77,19 +73,15 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(66, 66, 66)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addComponent(jLabel2)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(45, 45, 45)
+                .addGap(61, 61, 61)
                 .addComponent(jLabel2)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         BarraDeOpciones.setBackground(new java.awt.Color(204, 204, 0));
@@ -113,27 +105,67 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
         Mantenimiento.add(OpMantEntrenador);
 
         OpMantLocalizacion.setText("Localizacion");
+        OpMantLocalizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpMantLocalizacionActionPerformed(evt);
+            }
+        });
         Mantenimiento.add(OpMantLocalizacion);
 
         OpMantSalas.setText("Salas");
+        OpMantSalas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpMantSalasActionPerformed(evt);
+            }
+        });
         Mantenimiento.add(OpMantSalas);
 
         OpMantHorActividades.setText("Horarios de actividades");
+        OpMantHorActividades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpMantHorActividadesActionPerformed(evt);
+            }
+        });
         Mantenimiento.add(OpMantHorActividades);
 
         OpMantActividades.setText("Actividades");
+        OpMantActividades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpMantActividadesActionPerformed(evt);
+            }
+        });
         Mantenimiento.add(OpMantActividades);
 
         OpMantClientes.setText("Clientes");
+        OpMantClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpMantClientesActionPerformed(evt);
+            }
+        });
         Mantenimiento.add(OpMantClientes);
 
         OpMantEstReservas.setText("Estado Reservas");
+        OpMantEstReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpMantEstReservasActionPerformed(evt);
+            }
+        });
         Mantenimiento.add(OpMantEstReservas);
 
         OpMantReservas.setText("Reservas");
+        OpMantReservas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpMantReservasActionPerformed(evt);
+            }
+        });
         Mantenimiento.add(OpMantReservas);
 
         OpMantReservaAct.setText("Reserva actividades");
+        OpMantReservaAct.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OpMantReservaActActionPerformed(evt);
+            }
+        });
         Mantenimiento.add(OpMantReservaAct);
 
         BarraDeOpciones.add(Mantenimiento);
@@ -214,6 +246,14 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Verificar nivel.
+    public void comprobante(int nivel){
+        if(nivel==0){
+            System.out.println("[Usuario de nivel 0]");
+        }else{
+            System.out.println("[Usuario de nivel 1]");
+        }
+    }
     private void OpMantUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpMantUsuarioActionPerformed
         String[] args=null;
         MantUsuario.main(args);
@@ -224,10 +264,52 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
         MantEntrenador.main(args);
     }//GEN-LAST:event_OpMantEntrenadorActionPerformed
 
+    private void OpMantLocalizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpMantLocalizacionActionPerformed
+        String[] args = null;
+        MantLocalizacion.main(args);
+    }//GEN-LAST:event_OpMantLocalizacionActionPerformed
+
+    private void OpMantSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpMantSalasActionPerformed
+        String[] args = null;
+        MantSalas.main(args);
+    }//GEN-LAST:event_OpMantSalasActionPerformed
+
+    private void OpMantHorActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpMantHorActividadesActionPerformed
+        String[] args = null;
+        MantHorActividades.main(args);
+    }//GEN-LAST:event_OpMantHorActividadesActionPerformed
+
+    private void OpMantActividadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpMantActividadesActionPerformed
+        String[] args = null;
+        MantActividades.main(args);
+    }//GEN-LAST:event_OpMantActividadesActionPerformed
+
+    private void OpMantClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpMantClientesActionPerformed
+        String[] args = null;
+        MantClientes.main(args);
+    }//GEN-LAST:event_OpMantClientesActionPerformed
+
+    private void OpMantEstReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpMantEstReservasActionPerformed
+        String[] args = null;
+        MantEstadoReservas.main(args);
+    }//GEN-LAST:event_OpMantEstReservasActionPerformed
+
+    private void OpMantReservasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpMantReservasActionPerformed
+        String[] args = null;
+        MantReservas.main(args);
+    }//GEN-LAST:event_OpMantReservasActionPerformed
+
+    private void OpMantReservaActActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OpMantReservaActActionPerformed
+        String[] args = null;
+        MantReservaAct.main(args);
+    }//GEN-LAST:event_OpMantReservaActActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        MenuDeInteraccion seguro=new MenuDeInteraccion();
+        //seguro.comprobante(1);
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -291,7 +373,6 @@ public class MenuDeInteraccion extends javax.swing.JFrame {
     private javax.swing.JMenuItem OpMantUsuario;
     private javax.swing.JMenu Procesos;
     private javax.swing.JMenuItem ResCobro;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

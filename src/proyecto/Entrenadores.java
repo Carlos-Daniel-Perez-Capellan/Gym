@@ -9,13 +9,13 @@ package proyecto;
  * @author Daniel
  */
 public class Entrenadores {
-    Integer IdEntrenador;
+    String IdEntrenador;
     String TelfEntrenador,NomEntrenador,ApellEntrenador,EmailEntrenador;
     
     public Entrenadores(){
         this.NomEntrenador="";
         this.ApellEntrenador="";
-        this.IdEntrenador=0;
+        this.IdEntrenador="";
         this.EmailEntrenador="";
         this.TelfEntrenador="";
         

@@ -4,7 +4,6 @@ package proyecto;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 /**
  *
  * @author Daniel
@@ -196,7 +195,7 @@ public class MantUsuario extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Estado, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(SaveLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -204,11 +203,11 @@ public class MantUsuario extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(SavePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(SaveNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(SaveLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -221,12 +220,12 @@ public class MantUsuario extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(Acceso1)
                     .addComponent(Acceso0))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GuardarUsu)
                     .addComponent(Limpiar)
                     .addComponent(Salida))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -252,22 +251,22 @@ public class MantUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_SalidaActionPerformed
 
     private void GuardarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarUsuActionPerformed
-        Archivador data=new Archivador();
-        Usuarios person=new Usuarios();
-        
-        person.Login_Ususario=SaveLogin.getText();
-        person.Nombre__Usuario=SaveNombre.getText();
-        person.Apellido_Usuario=SaveLastName.getText();
-        person.Correo_Usuario=SaveEmail.getText();
-        person.Pass_Usuario=SavePassword.getText();
-        
-        if(Acceso0.isSelected()){
-            person.Nivel_Acceso=0;
-        }else{
-            person.Nivel_Acceso=1;
+        ArchivadorUsuarios dato = new ArchivadorUsuarios();
+        Usuarios person = new Usuarios();
+
+        person.Login_Ususario = SaveLogin.getText();
+        person.Nombre__Usuario = SaveNombre.getText();
+        person.Apellido_Usuario = SaveLastName.getText();
+        person.Correo_Usuario = SaveEmail.getText();
+        person.Pass_Usuario = SavePassword.getText();
+
+        if (Acceso0.isSelected()) {
+            person.Nivel_Acceso = 0;
+        } else {
+            person.Nivel_Acceso = 1;
         }
-        data.EditarArchivo(person.Login_Ususario,person.Nivel_Acceso,person.Nombre__Usuario, person.Apellido_Usuario, person.Correo_Usuario,person.Pass_Usuario);
-        
+        dato.GuardarDato(person.Login_Ususario, person.Nivel_Acceso, person.Nombre__Usuario, person.Apellido_Usuario, person.Correo_Usuario, person.Pass_Usuario);
+
         SaveLogin.setText("");
         SaveNombre.setText("");
         SaveLastName.setText("");
@@ -277,20 +276,24 @@ public class MantUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_GuardarUsuActionPerformed
 
     private void CambioDeEstado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambioDeEstado
-         String estado;
-         String login=SaveLogin.getText();
-         Archivador buscar=new Archivador();
-         
-        if(login==buscar.BuscarDato(login)){
+        String estado;
+        String login = SaveLogin.getText();
+        ArchivadorUsuarios buscar = new ArchivadorUsuarios();
+
+        if (login == buscar.BuscarDato(login)) {
             Estado.setText("Modificar usuario existente.");
-            
-            SaveNombre.setText(buscar.BuscarDato(""));
-            SaveLastName.setText(buscar.BuscarDato(""));
-            SaveEmail.setText(buscar.BuscarDato(""));
-            SavePassword.setText(buscar.BuscarDato(""));
-            
-        }else{
+
+            SaveNombre.setText(buscar.LeerDatoEspecifico(2));
+            SaveLastName.setText(buscar.LeerDatoEspecifico(3));
+            SaveEmail.setText(buscar.LeerDatoEspecifico(4));
+            SavePassword.setText(buscar.LeerDatoEspecifico(5));
+        } else {
             Estado.setText("Crear usuario no existente.");
+
+            SaveNombre.setText("");
+            SaveLastName.setText("");
+            SaveEmail.setText("");
+            SavePassword.setText("");
         }
     }//GEN-LAST:event_CambioDeEstado
 

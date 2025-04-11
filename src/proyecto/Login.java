@@ -139,17 +139,19 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
+        MenuDeInteraccion menu =new MenuDeInteraccion();
+        ArchivadorUsuarios data = new ArchivadorUsuarios();
         String[] args = null;
-        String lg="Admin";
-        String pass="000";
+        String lg = GetLogin.getText();
+        String pass = GetPassword.getText();
         
-        System.out.println("Entrada login:"+"["+lg+"/"+pass+"]");
-        
-        if(GetLogin.getText()=="Admin"&&GetPassword.getText()=="000"){
+        if (lg == data.BuscarDato(lg) || pass == data.BuscarDato(pass)) {
             System.out.println("[Se abrio menu]");
             MenuDeInteraccion.main(args);
+            //ERROR AL EJECUTAR METODO.
+            menu.comprobante(Integer.parseInt(data.LeerDatoEspecifico(1)));
             dispose();//Cierra la ventana login cuando entra al menu.
-        }else{
+        } else {
             Aviso.setText("Usuario no encontrado");
             GetLogin.setText("");
             GetPassword.setText("");
@@ -187,7 +189,7 @@ public class Login extends javax.swing.JFrame {
         }
         //</editor-fold>
         //--------------------------------------------
-        Archivador doc=new Archivador();
+        ArchivadorUsuarios doc = new ArchivadorUsuarios();
         doc.CrearArchivo();
         //--------------------------------------------
         /* Create and display the form */

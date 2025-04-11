@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package proyecto;
 
 import java.io.BufferedReader;
@@ -6,24 +10,36 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ArchivadorUsuarios extends Archivador {
+/**
+ *
+ * @author Daniel
+ */
+public class Actividades extends Archivador{
+    int id;
+    String nombre,descripcion;
+    String id_location_act;
+    String id_entrenador_act;
+    
+    public Actividades(){
+        this.id=0;
+        this.nombre="";
+        this.descripcion="";
+        this.id_entrenador_act="";
+        this.id_location_act="";
+    }
     File usuarios;
 
     //Creador de archivo de usuarios.
     @Override
     public void CrearArchivo() {
-        usuarios = new File("Usuarios.txt");
+        usuarios = new File("Actividades.txt");
         
         try {
             if (usuarios.createNewFile()) {
-                System.out.println("[Archivo de usuarios creado]");
+                System.out.println("[Archivo creado]");
             } else {
-                System.out.println("[Archivo de usuarios existente]");
+                System.out.println("[Archivo existente]");
             }
-            //Crear dato de admin.
-            FileWriter editor = new FileWriter("Usuarios.txt");
-            editor.write("1222792;" + 0 + ";admin;Carlos;Perez;CarlosDaniel1102004@gmail.com");
-            editor.close();
         } catch (IOException exepcion) {
             exepcion.printStackTrace(System.out);
         }
@@ -34,7 +50,7 @@ public class ArchivadorUsuarios extends Archivador {
         String linea;
         String contenido = "";
         try {
-            FileReader lector = new FileReader("Usuarios.txt");//Indicamos archivo a leer.
+            FileReader lector = new FileReader("Actividades.txt");//Indicamos archivo a leer.
             BufferedReader lectura = new BufferedReader(lector);//Le pasamos el archivo a leer.
 
             while ((linea = lectura.readLine()) != null) {
@@ -69,19 +85,17 @@ public class ArchivadorUsuarios extends Archivador {
         int cont = 0;
 
         try {
-            FileReader lector = new FileReader("Entrenador.txt");//Indicamos archivo a leer.
+            FileReader lector = new FileReader("Actividades.txt");//Indicamos archivo a leer.
             BufferedReader lectura = new BufferedReader(lector);//Le pasamos el archivo a leer.
 
             while ((linea = lectura.readLine()) != null) {
                 String[] bloques = linea.split(";");
-                
-                String password = bloques[0];
-                int nivel = Integer.parseInt(bloques[1]);
-                String login=bloques[2];
-                String nombre = bloques[3];
-                String apellido = bloques[4];
-                String correo = bloques[5];
-                
+
+                int id = Integer.parseInt(bloques[0]);
+                String nombre = bloques[1];
+                String descripcion = bloques[2];
+                String idLocate = bloques[3];
+                String contridEntrenador = bloques[4];
                 //Para pasar una linea de datos a otro archivo.
                 for (int i = 0; i < 5; i++) {
                     contenido = contenido + bloques[i] + ";";
@@ -99,12 +113,11 @@ public class ArchivadorUsuarios extends Archivador {
         return "[NO HAY DATOS]";
     }
 
-    //Buscar dato en el archivo"Usuarios".
     @Override
     public String BuscarDato(String dato) {
         String linea;
         String valor = dato;
-        try (BufferedReader buscador = new BufferedReader(new FileReader("Usuarios.txt"))) {
+        try (BufferedReader buscador = new BufferedReader(new FileReader("Actividades.txt"))) {
 
             boolean encontrado = false;
 
@@ -130,15 +143,15 @@ public class ArchivadorUsuarios extends Archivador {
     }
 
     //Guardar datos.
-    @Override
-    public void GuardarDato(String login, int level, String nombre, String apellido, String correo, String password) {
+    public void GuardarDato(int id,String nombre, String descripcion, String idLocate, String idEntrenador) {
         try {
+            ArchivadorEntrenador datoEnt=new ArchivadorEntrenador();//vincular.
             ArchivadorUsuarios seg = new ArchivadorUsuarios();
             FileWriter principal = new FileWriter("Usuarios.txt");
             FileWriter segundario = new FileWriter("UsuarioAuxiliar.txt");
 
             segundario.write("Dato:\n"+seg.LeerArchivoEspecifico());
-            principal.write(login + ";" + level + ";" + nombre + ";" + apellido + ";" + correo + ";" + password + ";" + "\n");
+            principal.write(id + ";" + nombre + ";" + descripcion + ";" + idLocate +";"+idEntrenador);
 
             segundario.close();
             principal.close();
@@ -156,6 +169,11 @@ public class ArchivadorUsuarios extends Archivador {
         } else {
             System.out.println("[Error al eliminar, Archivo no encontrado.]");
         }
+    }
+
+    @Override
+    public void GuardarDato(String login, int level, String nombre, String apellido, String correo, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

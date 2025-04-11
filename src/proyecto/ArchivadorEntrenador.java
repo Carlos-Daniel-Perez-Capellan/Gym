@@ -6,26 +6,37 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ArchivadorUsuarios extends Archivador {
-    File usuarios;
-
-    //Creador de archivo de usuarios.
+public class ArchivadorEntrenador extends Archivador {
+    File entrenador;
+    //Creador de archivo de entrenadores.
     @Override
     public void CrearArchivo() {
-        usuarios = new File("Usuarios.txt");
-        
+        entrenador = new File("Entrenadores.txt");
         try {
-            if (usuarios.createNewFile()) {
-                System.out.println("[Archivo de usuarios creado]");
+            if (entrenador.createNewFile()) {
+                System.out.println("[Archivo de entrenadores creado]");
             } else {
-                System.out.println("[Archivo de usuarios existente]");
+                System.out.println("[Archivo de entrenadores existente]");
             }
-            //Crear dato de admin.
-            FileWriter editor = new FileWriter("Usuarios.txt");
-            editor.write("1222792;" + 0 + ";admin;Carlos;Perez;CarlosDaniel1102004@gmail.com");
-            editor.close();
         } catch (IOException exepcion) {
             exepcion.printStackTrace(System.out);
+        }
+    }
+    //Guardar dato.
+    public void GuardarDato(String id, String nombre, String apellido, String correo, String telefono) {
+        try {
+            ArchivadorUsuarios seg = new ArchivadorUsuarios();
+            FileWriter principal = new FileWriter("Entrenador.txt");
+            FileWriter segundario = new FileWriter("EntrenadorAuxiliar.txt");
+
+            segundario.write("Dato:\n"+seg.LeerArchivoEspecifico());
+            principal.write(id + ";" + nombre + ";" + apellido + ";" + correo + ";" + telefono + ";" + "\n");
+
+            segundario.close();
+            principal.close();
+            System.out.println("[Cambios guardados]");
+        } catch (IOException exepcion) {
+            exepcion.printStackTrace();
         }
     }
     //Metodo para leer archivo txt.
@@ -34,21 +45,20 @@ public class ArchivadorUsuarios extends Archivador {
         String linea;
         String contenido = "";
         try {
-            FileReader lector = new FileReader("Usuarios.txt");//Indicamos archivo a leer.
+            FileReader lector = new FileReader("Entrenadores.txt");//Indicamos archivo a leer.
             BufferedReader lectura = new BufferedReader(lector);//Le pasamos el archivo a leer.
 
             while ((linea = lectura.readLine()) != null) {
                 String[] bloques = linea.split(";");
 
-                String login = bloques[0];
-                int nivel = Integer.parseInt(bloques[1]);
-                String nombre = bloques[2];
-                String apellido = bloques[3];
-                String correo = bloques[4];
-                String contrasena = bloques[5];
+                int id = Integer.parseInt(bloques[0]);
+                String nombre = bloques[1];
+                String apellido = bloques[2];
+                String correo = bloques[3];
+                String telefono = bloques[4];
 
                 //Para pasar una linea de datos a otro archivo.
-                for (int i = 0; i < 5; i++) {
+                for (int i = 0; i < 4; i++) {
                     contenido = contenido + bloques[i] + ";";
                 }
             }
@@ -60,7 +70,7 @@ public class ArchivadorUsuarios extends Archivador {
         }
         return "[NO HAY DATOS]";
     }
-
+    //
     @Override
     public String LeerDatoEspecifico(int dato) {
         String especificasion[] = new String[5];
@@ -69,42 +79,44 @@ public class ArchivadorUsuarios extends Archivador {
         int cont = 0;
 
         try {
-            FileReader lector = new FileReader("Entrenador.txt");//Indicamos archivo a leer.
+            FileReader lector = new FileReader("Entrenadores.txt");//Indicamos archivo a leer.
             BufferedReader lectura = new BufferedReader(lector);//Le pasamos el archivo a leer.
 
             while ((linea = lectura.readLine()) != null) {
                 String[] bloques = linea.split(";");
+
+                String id = bloques[0];
                 
-                String password = bloques[0];
-                int nivel = Integer.parseInt(bloques[1]);
-                String login=bloques[2];
-                String nombre = bloques[3];
-                String apellido = bloques[4];
-                String correo = bloques[5];
-                
+                String nombre = bloques[1];
+                String apellido = bloques[2];
+                String correo = bloques[3];
+                String telefono = bloques[4];
                 //Para pasar una linea de datos a otro archivo.
                 for (int i = 0; i < 5; i++) {
+                    //System.out.print(bloques[i] + ";");
                     contenido = contenido + bloques[i] + ";";
                     especificasion[i] = bloques[i];
+                    //System.out.println(especificasion[i]);
                 }
             }
+            //System.out.println("Conten:" + contenido+"\n");
             //-----------------------------------------------------
             System.out.println("Salida:" + especificasion[dato]);
             return especificasion[dato];
             //-----------------------------------------------------
+            //return contenido;
 
         } catch (IOException exepcion) {
             exepcion.printStackTrace(System.out);
         }
         return "[NO HAY DATOS]";
     }
-
-    //Buscar dato en el archivo"Usuarios".
+    //
     @Override
     public String BuscarDato(String dato) {
         String linea;
         String valor = dato;
-        try (BufferedReader buscador = new BufferedReader(new FileReader("Usuarios.txt"))) {
+        try (BufferedReader buscador = new BufferedReader(new FileReader("Entrenadores.txt"))) {
 
             boolean encontrado = false;
 
@@ -115,6 +127,7 @@ public class ArchivadorUsuarios extends Archivador {
                         return valor;//Devolver linea si se encuentra el dato.
                     }
                     encontrado = true;
+                    //break; // Salir del bucle si se encuentra el dato.
                 } else {
                     System.out.println("Dato no encontrado.");
                 }
@@ -128,27 +141,7 @@ public class ArchivadorUsuarios extends Archivador {
         }
         return null;
     }
-
-    //Guardar datos.
-    @Override
-    public void GuardarDato(String login, int level, String nombre, String apellido, String correo, String password) {
-        try {
-            ArchivadorUsuarios seg = new ArchivadorUsuarios();
-            FileWriter principal = new FileWriter("Usuarios.txt");
-            FileWriter segundario = new FileWriter("UsuarioAuxiliar.txt");
-
-            segundario.write("Dato:\n"+seg.LeerArchivoEspecifico());
-            principal.write(login + ";" + level + ";" + nombre + ";" + apellido + ";" + correo + ";" + password + ";" + "\n");
-
-            segundario.close();
-            principal.close();
-            System.out.println("[Cambios guardados]");
-        } catch (IOException exepcion) {
-            exepcion.printStackTrace();
-        }
-    }
-
-    //Metodo para eliminar  archivo txt.
+    //
     @Override
     public void EliminarArchivo(File archivo) {
         if (archivo.delete()) {
@@ -156,6 +149,11 @@ public class ArchivadorUsuarios extends Archivador {
         } else {
             System.out.println("[Error al eliminar, Archivo no encontrado.]");
         }
+    }
+    //Inactivo, metodo no utilizado.
+    @Override
+    public void GuardarDato(String login, int level, String nombre, String apellido, String correo, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }

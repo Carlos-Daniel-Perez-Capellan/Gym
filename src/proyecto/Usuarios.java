@@ -11,7 +11,7 @@ package proyecto;
 public class Usuarios {
     String Login_Ususario;
     String Pass_Usuario;
-    Integer Nivel_Acceso;
+    int Nivel_Acceso;
     String Nombre__Usuario;
     String Apellido_Usuario;
     String Correo_Usuario;
