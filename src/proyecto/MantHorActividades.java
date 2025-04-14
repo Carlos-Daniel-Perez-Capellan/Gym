@@ -27,12 +27,10 @@ public class MantHorActividades extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        SaveId = new javax.swing.JTextField();
+        Id = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        SaveLocate = new javax.swing.JTextField();
+        Hora = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        SaveName = new javax.swing.JPasswordField();
-        SaveEntrenador = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -40,14 +38,16 @@ public class MantHorActividades extends javax.swing.JFrame {
         Salida = new javax.swing.JButton();
         Limpiar = new javax.swing.JButton();
         GuardarUsu = new javax.swing.JButton();
+        Dia = new javax.swing.JTextField();
+        IdActividad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
 
-        SaveId.addActionListener(new java.awt.event.ActionListener() {
+        Id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveIdCambioDeEstado(evt);
+                IdCambioDeEstado(evt);
             }
         });
 
@@ -55,9 +55,9 @@ public class MantHorActividades extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(204, 204, 0));
         jLabel7.setText("Id de horario");
 
-        SaveLocate.addActionListener(new java.awt.event.ActionListener() {
+        Hora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveLocateCambioDeEstado(evt);
+                HoraCambioDeEstado(evt);
             }
         });
 
@@ -116,37 +116,43 @@ public class MantHorActividades extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel8))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(Hora, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                            .addComponent(IdActividad)))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel1)
+                                            .addComponent(jLabel7))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(Id, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                            .addComponent(Dia))))
+                                .addGap(98, 98, 98)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(SaveLocate)
-                                    .addComponent(SaveEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel7))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(SaveId)
-                                    .addComponent(SaveName, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(Estado, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(98, 98, 98)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(GuardarUsu)
-                .addGap(18, 18, 18)
-                .addComponent(Limpiar)
-                .addGap(18, 18, 18)
-                .addComponent(Salida)
-                .addGap(77, 77, 77))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(GuardarUsu)
+                                .addGap(18, 18, 18)
+                                .addComponent(Limpiar)
+                                .addGap(18, 18, 18)
+                                .addComponent(Salida)
+                                .addGap(77, 77, 77))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(Estado, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,19 +163,19 @@ public class MantHorActividades extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(SaveId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(SaveName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Dia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(SaveLocate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Hora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(SaveEntrenador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(IdActividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(GuardarUsu)
@@ -192,42 +198,48 @@ public class MantHorActividades extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SaveIdCambioDeEstado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveIdCambioDeEstado
-        String estado;
-        String login=SaveId.getText();
-        Archivador buscar=new Archivador();
+    private void IdCambioDeEstado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdCambioDeEstado
+        String login=Id.getText();
+        Reservas buscar=new Reservas();
 
         if(login==buscar.BuscarDato(login)){
-            Estado.setText("Modificar usuario existente.");
-            SaveName.setText(buscar.BuscarDato(""));
+            Estado.setText("Modificando");
+            Dia.setText(buscar.BuscarDato(""));
         }else{
-            Estado.setText("Crear usuario no existente.");
+            Estado.setText("Creando");
         }
-    }//GEN-LAST:event_SaveIdCambioDeEstado
+    }//GEN-LAST:event_IdCambioDeEstado
 
-    private void SaveLocateCambioDeEstado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveLocateCambioDeEstado
+    private void HoraCambioDeEstado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HoraCambioDeEstado
         // TODO add your handling code here:
-    }//GEN-LAST:event_SaveLocateCambioDeEstado
+    }//GEN-LAST:event_HoraCambioDeEstado
 
     private void SalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalidaActionPerformed
         dispose();
     }//GEN-LAST:event_SalidaActionPerformed
 
     private void LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimpiarActionPerformed
-        SaveId.setText("");
-        SaveName.setText("");
+        Id.setText("");
+        Dia.setText("");
+        Hora.setText("");
+        IdActividad.setText("");
         Estado.setText("");
     }//GEN-LAST:event_LimpiarActionPerformed
 
     private void GuardarUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarUsuActionPerformed
-        Archivador data=new Archivador();
-        Usuarios person=new Usuarios();
-
-        person.Login_Ususario=SaveId.getText();
-        person.Pass_Usuario=SaveName.getText();
-
-        SaveId.setText("");
-        SaveName.setText("");
+        Reservas act=new Reservas();
+        act.id_hor_act=Id.getText();
+        act.dia_act=Dia.getText();
+        act.hora_act=Integer.parseInt(Hora.getText());
+        act.id_act=IdActividad.getText();
+        
+        
+        act.GuardarCambios_act(act.id_hor_act, act.dia_act, act.hora_act, act.id_act);
+        
+        Id.setText("");
+        Dia.setText("");
+        Hora.setText("");
+        IdActividad.setText("");
         Estado.setText("");
     }//GEN-LAST:event_GuardarUsuActionPerformed
 
@@ -267,14 +279,14 @@ public class MantHorActividades extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Dia;
     private javax.swing.JLabel Estado;
     private javax.swing.JButton GuardarUsu;
+    private javax.swing.JTextField Hora;
+    private javax.swing.JTextField Id;
+    private javax.swing.JTextField IdActividad;
     private javax.swing.JButton Limpiar;
     private javax.swing.JButton Salida;
-    private javax.swing.JPasswordField SaveEntrenador;
-    private javax.swing.JTextField SaveId;
-    private javax.swing.JTextField SaveLocate;
-    private javax.swing.JPasswordField SaveName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
