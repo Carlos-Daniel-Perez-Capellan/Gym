@@ -15,6 +15,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -27,7 +28,6 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -42,8 +42,6 @@ public class Login extends javax.swing.JFrame {
         setName("Login"); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Gym.jpg"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Cambria", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 0));
@@ -83,10 +81,13 @@ public class Login extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Aviso, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(Aviso, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(170, 170, 170))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2)
                             .addComponent(Iniciar)
@@ -96,11 +97,8 @@ public class Login extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(GetPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(Exit, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(GetLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(17, 17, 17)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(152, 152, 152))
+                            .addComponent(GetLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,15 +118,15 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(Exit)
                     .addComponent(Iniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Aviso, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel4)
+                .addComponent(Aviso, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,22 +137,21 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IniciarActionPerformed
-        MenuDeInteraccion menu =new MenuDeInteraccion();
-        ArchivadorUsuarios data = new ArchivadorUsuarios();
+        MenuDeInteraccion menu = new MenuDeInteraccion();
+        Usuarios data = new Usuarios();
         String[] args = null;
-        String lg = GetLogin.getText();
-        String pass = GetPassword.getText();
-        
-        if (lg == data.BuscarDato(lg) || pass == data.BuscarDato(pass)) {
+
+        if (GetLogin.getText().equals(data.LeerDatoEspecifico(2)) && GetPassword.getText().equals( data.LeerDatoEspecifico(0))) {
             System.out.println("[Se abrio menu]");
             MenuDeInteraccion.main(args);
-            //ERROR AL EJECUTAR METODO.
-            menu.comprobante(Integer.parseInt(data.LeerDatoEspecifico(1)));
+            //METODO DE INUTIIZAR OPCIONES SIN TERMINAR.
+            data.Nivel_Acceso=Integer.parseInt(data.LeerDatoEspecifico(1));
             dispose();//Cierra la ventana login cuando entra al menu.
         } else {
             Aviso.setText("Usuario no encontrado");
             GetLogin.setText("");
             GetPassword.setText("");
+            System.out.println("["+data.LeerDatoEspecifico(0)+"]");
         }
     }//GEN-LAST:event_IniciarActionPerformed
 
@@ -189,8 +186,8 @@ public class Login extends javax.swing.JFrame {
         }
         //</editor-fold>
         //--------------------------------------------
-        ArchivadorUsuarios doc = new ArchivadorUsuarios();
-        doc.CrearArchivo();
+        Usuarios doc = new Usuarios();
+        //doc.CrearArchivo();
         //--------------------------------------------
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -209,7 +206,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
